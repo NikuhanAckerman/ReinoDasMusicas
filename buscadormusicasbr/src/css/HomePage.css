@@ -1,0 +1,18 @@
+.welcomeText {
+  margin-top: 5vh;
+  margin-bottom: 0;
+}
+
+.userDataButtonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.songCardsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}

@@ -1,0 +1,15 @@
+.userDataButton {
+    background-color: #ad092c !important;
+    color: white !important;
+    margin: 10px;
+    width: 250px;
+    height: 50px;
+}
+
+.userDataButton:hover {
+    background-color: #c53c5a !important;
+}
+
+.userDataButton:active {
+    background-color: #5a0a0a !important;
+}

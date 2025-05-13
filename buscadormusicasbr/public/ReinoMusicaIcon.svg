@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+	<title>ReinoMusicaIcon</title>
+	<defs>
+		<image  width="32" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAAXNSR0IB2cksfwAAAANQTFRFrQkslcAkQwAAAA9JREFUeJxjZAACxsFLAAAK8AAhCVrP+AAAAABJRU5ErkJggg=="/>
+		<image  width="28" height="12" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAMCAMAAABGBS09AAAAAXNSR0IB2cksfwAAAXpQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////02MLIAAAAH50Uk5TAAIGATlMFgAhcnEfEAcDSLzpvULD+//ZOi7T6kc1u/XbcAkr4/6/d/2M+aOiSk/3BIbcx6EOHetvN/D0rQgvs8+6hNDUaJm5qPZOaueF8hUmCg0UHOaQfNp2EYDMJWnlHgVmvlMZzlIPPdjuMEbv+PqvV+3foF4pQG1iGBNFacqBwwAAAR9JREFUeJxjZGBgZGT8y8DAwMQEZIA4jF+BPEZuxl8/GflAXMYvDIw8YAbjHwZWxqf/ZSEcZcZPDPyMf95IMr5jEGJ8oPiGgUH04VftP+8YOPkY9V4ADZG8qsP4lIGBn5fxO1BSDqjnPlBUidGS8Q7DfzVGZHBVmJGT/yyDpDQjk+d5oweKjFcf+DBu874lIrzb7dElX5CSF5I/GBkYbH+ciXwlvukzA4PZPQ/GxQwMBnqMjMvZQuYzACWBgDmecekPBoaU7TLqS/4xpN5iPvMJJAyRZIgCeeSJ7BqG0M1vkhgvfzvFgCTJbMh/PWS719Zv38U9FiraT/iPLMlQxLgonpGxr5iR8YTRcYc2BhTJ6gs7LU/9BBtSyXhpI0QQAMrRUy9UlL+pAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<use id="musicrown" href="#img2" x="1" y="10"/>
+</svg>

@@ -1,0 +1,16 @@
+.searchInput {
+    max-width: 1024px !important;
+    padding: 15px;
+}
+
+.search-button {
+    background-color: #ad092c !important;
+}
+
+.search-button:hover {
+    background-color: #c53c5a !important;
+}
+
+.search-button:active {
+    background-color: #5a0a0a !important;
+}

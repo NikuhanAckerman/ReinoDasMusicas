@@ -1,0 +1,42 @@
+.player-container {
+  border-radius: 10px;
+  width: 300px;
+}
+
+.audio-element {
+  width: 100%;
+}
+
+@media (max-width: 550px) {
+    .player-container {
+        border-radius: 10px;
+        width: 200px;
+    }
+}
+
+.audio-element::-webkit-media-controls-play-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.audio-element::-webkit-media-controls-mute-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.audio-element::-webkit-media-controls-more-button {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.audio-element::-webkit-media-controls-current-time-display {
+  color: #ffffff;
+}
+
+.audio-element::-webkit-media-controls-time-remaining-display {
+  color: #ffffff;
+}
+
+.audio-element::-webkit-media-controls-panel {
+    background-color: #ad092c;
+}
