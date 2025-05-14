@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/SongCard.css'
 import SongPlayer from "./SongPlayer.js"
 import axios from 'axios';
 import { BoxArrowUpRight, PlusCircleFill} from 'react-bootstrap-icons';
+import ErrorNotification from "./ErrorNotification.js"
+import SuccessNotification from './SuccessNotification.js';
 
 export default function SongCard( {title, artist, image, previewUrl, deezerId, deezerLink} ) {
+
+    const [notificationState, setNotificationState] = useState(null);
 
     function addSong(title, artist, imageUrl, previewUrl, deezerId, deezerLink) {
       axios.post('/musicas/adicionarMusica', {
@@ -17,9 +21,11 @@ export default function SongCard( {title, artist, image, previewUrl, deezerId, d
       })  
       .then(response => {
         console.log("Música adicionada com sucesso!");
+        setNotificationState("success");
       })
       .catch(error => {
         console.error("Erro ao adicionar música:", error);
+        setNotificationState("error")
       });
     }
 
@@ -43,6 +49,8 @@ export default function SongCard( {title, artist, image, previewUrl, deezerId, d
             <button className="song-button" onClick={() => addSong(title, artist, image, previewUrl, deezerId, deezerLink)}>Adicionar música <PlusCircleFill/></button>
             
           </div>
+
+          {notificationState === "success" ? <SuccessNotification/> : <ErrorNotification/>}
 
         </div>
       </div>

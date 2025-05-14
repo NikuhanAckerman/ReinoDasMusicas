@@ -3,7 +3,6 @@ package trabalhojava.buscadordemusicasbrasileiras.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 import trabalhojava.buscadordemusicasbrasileiras.model.SongEntity;
 import trabalhojava.buscadordemusicasbrasileiras.repository.SongsRepository;
 
@@ -35,7 +34,6 @@ public class SongsController {
     @PostMapping("/adicionarMusica")
     public void adicionarMusica(@RequestBody SongEntity song) {
         songsRepository.save(song);
-        
     }
 
     @DeleteMapping("/deletarMusica/{id}")
