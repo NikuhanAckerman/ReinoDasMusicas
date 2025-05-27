@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <div className="text-center userDataButtonsContainer">
         <UserDataButton buttonText=" MINHAS MÚSICAS" buttonIcon={<MusicNoteBeamed />} buttonHref={"/musicas/minhasMusicas"} />
-        <UserDataButton buttonText=" MINHAS PLAYLISTS" buttonIcon={<MusicNoteList />} buttonHref={"#"} />
+        <UserDataButton buttonText=" MINHAS PLAYLISTS" buttonIcon={<MusicNoteList />} buttonHref={"/playlists/minhasPlaylists"} />
       </div>
 
       <Searcher searcherTopic="Procure uma música" onSearch={searchSongs} />
@@ -43,7 +43,6 @@ export default function HomePage() {
           />
         ))}
       </div>
-
 
     </div>
   )

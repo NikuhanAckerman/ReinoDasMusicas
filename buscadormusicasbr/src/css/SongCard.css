@@ -1,6 +1,6 @@
 
 .songCard {
-    width: 500px !important;
+    width: 500px ;
     margin: 10px;
 }
 
@@ -23,11 +23,29 @@
     border: 0;
 }
 
+.song-button-mod {
+    background-color: #ad092c;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    align-self: center;
+    width: fit-content;
+    border: 0;
+}
+
 .song-button:hover {
     background-color: #c53c5a !important;
 }
 
+.song-button-mod:hover {
+    background-color: #c53c5a !important;
+}
+
 .song-button:active {
+    background-color: #5a0a0a !important;
+}
+
+.song-button-mod:active {
     background-color: #5a0a0a !important;
 }
 

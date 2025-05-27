@@ -5,22 +5,17 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "MusicaEntity")
+import java.util.List;
+
+@Document(collection = "PlaylistEntity")
 @Getter @Setter
-public class SongEntity {
+public class PlaylistEntity {
 
     @Id
     private String id;
 
-    private int deezerId;
-
-    private String deezerLink;
+    private List<String> listOfSongIds;
 
     private String title;
 
-    private String artist;
-
-    private String imageUrl;
-
-    private String previewUrl;
 }

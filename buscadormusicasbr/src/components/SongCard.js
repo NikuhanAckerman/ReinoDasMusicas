@@ -3,12 +3,10 @@ import '../css/SongCard.css'
 import SongPlayer from "./SongPlayer.js"
 import axios from 'axios';
 import { BoxArrowUpRight, PlusCircleFill} from 'react-bootstrap-icons';
-import ErrorNotification from "./ErrorNotification.js"
-import SuccessNotification from './SuccessNotification.js';
+import { useNotification } from './NotificationContext';
 
 export default function SongCard( {title, artist, image, previewUrl, deezerId, deezerLink} ) {
-
-    const [notificationState, setNotificationState] = useState(null);
+    const { addNotification } = useNotification();
 
     function addSong(title, artist, imageUrl, previewUrl, deezerId, deezerLink) {
       axios.post('/musicas/adicionarMusica', {
@@ -20,12 +18,14 @@ export default function SongCard( {title, artist, image, previewUrl, deezerId, d
         deezerLink
       })  
       .then(response => {
+        addNotification("Sucesso", "Música adicionada com sucesso!");
+
         console.log("Música adicionada com sucesso!");
-        setNotificationState("success");
       })
       .catch(error => {
-        console.error("Erro ao adicionar música:", error);
-        setNotificationState("error")
+        addNotification("Erro", error.response.data || "Erro indeterminado");
+    
+        console.error(error.response.data);
       });
     }
 
@@ -49,8 +49,6 @@ export default function SongCard( {title, artist, image, previewUrl, deezerId, d
             <button className="song-button" onClick={() => addSong(title, artist, image, previewUrl, deezerId, deezerLink)}>Adicionar música <PlusCircleFill/></button>
             
           </div>
-
-          {notificationState === "success" ? <SuccessNotification/> : <ErrorNotification/>}
 
         </div>
       </div>

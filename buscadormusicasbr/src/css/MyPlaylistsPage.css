@@ -1,0 +1,9 @@
+.playlistCard {
+  width: 500px !important;
+}
+
+.my-songs-title {
+  margin-top: 5vh;
+  margin-bottom: 0;
+  margin-left: 25px;
+}

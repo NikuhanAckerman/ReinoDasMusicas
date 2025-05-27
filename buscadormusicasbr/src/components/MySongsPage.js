@@ -19,7 +19,7 @@ export default function MySongsPage() {
     return (
     <div>
         
-      <h1 className="text-left my-songs-title">Músicas adicionadas</h1>
+      <h1 className="text-center my-songs-title mb-2">Músicas adicionadas</h1>
 
       <div className="text-center songCardsContainer">
         {songs.map((song) => (
