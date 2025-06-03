@@ -24,7 +24,7 @@ public class SongsController {
     @GetMapping("/minhasMusicas/{id}")
     public ResponseEntity<SongEntity> getSongById(@PathVariable String id) {
         if(songsRepository.findById(id).isEmpty()) {
-            throw new SongOperationException("Erro: Essa playlist não foi encontrada no perfil.");
+            throw new SongOperationException("Erro: Essa música não foi encontrada no perfil.");
         }
         return songsRepository.findById(id)
                 .map(ResponseEntity::ok)
@@ -34,10 +34,10 @@ public class SongsController {
     @PostMapping("/adicionarMusica")
     public void adicionarMusica(@RequestBody SongEntity song) {
         if(songsRepository.existsByDeezerId(song.getDeezerId())) {
-            throw new SongOperationException("Erro: Essa playlist já está adicionada no perfil.");
+            throw new SongOperationException("Erro: Essa música já está adicionada no perfil.");
         }
         if(songsRepository.count() > 20) {
-            throw new SongOperationException("Erro: A lista de playlists está com capacidade cheia.");
+            throw new SongOperationException("Erro: A lista de músicas está com capacidade cheia.");
         }
         songsRepository.save(song);
     }
