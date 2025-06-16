@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowDown, X } from 'react-bootstrap-icons';
+import { ArrowDown, Pencil, X } from 'react-bootstrap-icons';
 import PlaylistSongCard from './PlaylistSongCard.js';
 import { getPlaylistById, getPlaylistSongs } from '../functions/songApi.js';
 import { useNotification } from './NotificationContext.js';
@@ -13,6 +13,10 @@ export default function PlaylistsCard({ mongoId, title, onDelete }) {
   const [isUpdating, setIsUpdating] = useState(false);
   const [allSongs, setAllSongs] = useState([]);
   const [selectedSongs, setSelectedSongs] = useState([]);
+
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [newTitle, setNewTitle] = useState(title);
+  const [displayedTitle, setDisplayedTitle] = useState(title);
 
   const fetchPlaylistSongs = async () => {
     try {
@@ -48,6 +52,19 @@ export default function PlaylistsCard({ mongoId, title, onDelete }) {
     }
   };
 
+  const updatePlaylistName = async () => {
+    try {
+      await axios.put(`/playlists/minhasPlaylists/${mongoId}/atualizarTitulo`, null, {
+        params: { newTitle }
+      });
+      addNotification('Sucesso', 'Título da playlist atualizado!');
+      setDisplayedTitle(newTitle);
+      setIsEditingTitle(false);
+    } catch (err) {
+      addNotification('Erro', err.response?.data || 'Erro ao atualizar nome da playlist.');
+    }
+  };
+
   const toggleUpdateMode = async () => {
     setIsUpdating(prev => !prev);
     if (!isUpdating) {
@@ -76,13 +93,40 @@ export default function PlaylistsCard({ mongoId, title, onDelete }) {
     }
   };
 
+  
+
   return (
     <div className="text-center mt-4" style={{ width: "800px" }}>
       <div className="d-flex align-items-center">
-        <h1>{title}</h1>
-        <button className="btn song-button-mod ms-auto" onClick={() => setIsCollapsed(!isCollapsed)}>
+        {isEditingTitle ? (
+          <>
+            <input
+              type="text"
+              className="form-control"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              style={{ maxWidth: '300px', fontSize: '1.5rem' }}
+            />
+            <button className="btn btn-success ms-2" onClick={updatePlaylistName}>✔️</button>
+            <button className="btn btn-secondary ms-2 me-2" onClick={() => {
+              setIsEditingTitle(false);
+              setNewTitle(title);
+            }}>
+              <X />
+            </button>
+          </>
+        ) : (
+          <>
+            <h1>{displayedTitle}</h1>
+            <button className="btn song-button-mod ms-auto me-2" onClick={() => setIsEditingTitle(true)}>
+              <Pencil />
+            </button>
+          </>
+        )}
+        <button className="btn song-button-mod" onClick={() => setIsCollapsed(!isCollapsed)}>
           <ArrowDown />
         </button>
+        
       </div>
 
       

@@ -113,6 +113,27 @@ public class PlaylistsController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/minhasPlaylists/{id}/atualizarTitulo")
+    public ResponseEntity<PlaylistEntity> updatePlaylistTitle(@PathVariable String id, @RequestParam String newTitle) {
+        System.out.println("titulo atualizado: " + newTitle);
+        PlaylistEntity playlist = playlistsRepository.findById(id).get();
+        if(newTitle.length() > 20) {
+            throw new PlaylistOperationException("Erro: Nome da playlist muito longo. Escreva novamente com até 20 caracteres.");
+        }
+        boolean titleExists = playlistsRepository.findAll().stream()
+                .map(PlaylistEntity::getTitle)
+                .anyMatch(existingTitle -> existingTitle.equalsIgnoreCase(newTitle)); // case-insensitive check
+        if(playlist.getTitle().equals(newTitle)) {
+            titleExists = false;
+        }
+        if(titleExists) {
+            throw new PlaylistOperationException("Erro: Esse nome da playlist já existe.");
+        }
+        playlist.setTitle(newTitle);
+        playlistsRepository.save(playlist);
+        return ResponseEntity.ok(playlist);
+    }
+
     @DeleteMapping("/deletarPlaylist/{id}")
     public void deletePlaylist(@PathVariable String id) {
         if(playlistsRepository.findById(id).isEmpty()) {

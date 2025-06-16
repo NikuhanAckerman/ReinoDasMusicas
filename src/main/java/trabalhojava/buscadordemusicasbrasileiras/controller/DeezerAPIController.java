@@ -18,6 +18,7 @@ public class DeezerAPIController {
 
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);
+        System.out.println(response);
 
         return ResponseEntity.ok(response);
     }
